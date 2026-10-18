@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>VYRO — Streetwear</title>
+<style>
+:root{--bg:#080808;--panel:#111;--line:#2a2a2a;--muted:#aaa;--white:#f6f6f3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
+.announcement{background:#f5f5f2;color:#111;text-align:center;padding:9px;font-size:11px;letter-spacing:2px;font-weight:700}
+header{position:sticky;top:0;z-index:10;background:#090909ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:18px 5vw}
+.logo{font-size:30px;font-weight:900;letter-spacing:5px}.nav{display:flex;gap:24px;font-size:12px;letter-spacing:1px}.nav a:hover{opacity:.65}.cart-open{background:transparent;color:white;border:1px solid #666;padding:10px 14px;cursor:pointer;font-size:12px}
+.hero{min-height:590px;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.hero-copy{padding:9vw 7vw;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.eyebrow{font-size:11px;letter-spacing:4px;color:#bbb}.hero h1{font-size:clamp(52px,8vw,112px);line-height:.88;letter-spacing:-5px;margin:25px 0;font-weight:900}.hero p{color:#bbb;line-height:1.8;max-width:360px;font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--white);color:#090909;border:1px solid var(--white);padding:15px 22px;font-weight:800;font-size:12px;letter-spacing:1px;cursor:pointer;transition:.2s}.btn:hover{background:transparent;color:var(--white)}.btn-outline{background:transparent;color:white;border-color:#555}.btn-outline:hover{background:white;color:#111}
+.hero-art{position:relative;min-height:420px;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,#363636 0,#181818 38%,#090909 72%)}
+.hero-art:before{content:"V";position:absolute;font-weight:900;font-size:min(65vw,600px);line-height:1;letter-spacing:-30px;color:#1f1f1f;left:50%;top:50%;transform:translate(-50%,-47%);text-shadow:0 1px #444}
+.hero-art:after{content:"VYRO / DROP 001";position:absolute;bottom:26px;left:28px;font-size:10px;letter-spacing:4px;color:#bbb;direction:ltr}
+.section{padding:75px 5vw}.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:30px;gap:20px}.section h2{font-size:clamp(28px,4vw,44px);margin:8px 0 0;letter-spacing:-1px}.muted{color:var(--muted)}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.product{min-width:0}.product-image{aspect-ratio:4/5;background:linear-gradient(145deg,#222,#0e0e0e);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #222}
+.product-image .shape{position:relative;width:58%;height:62%;filter:drop-shadow(0 18px 14px #0008)}
+.tee .shape{background:linear-gradient(120deg,#252525,#050505 65%,#292929);clip-path:polygon(25% 0,40% 7%,60% 7%,75% 0,100% 20%,83% 37%,72% 28%,72% 100%,28% 100%,28% 28%,17% 37%,0 20%);border:1px solid #444}
+.hoodie .shape{background:linear-gradient(110deg,#555,#181818 58%,#080808);clip-path:polygon(32% 0,42% 8%,58% 8%,68% 0,90% 12%,100% 32%,81% 42%,72% 28%,72% 100%,28% 100%,28% 28%,19% 42%,0 32%,10% 12%); }
+.pants .shape{width:52%;height:75%;background:linear-gradient(100deg,#242424,#070707 50%,#303030);clip-path:polygon(12% 0,88% 0,94% 100%,57% 100%,49% 42%,42% 100%,5% 100%);border:1px solid #444}
+.product-image .print{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);font-weight:900;letter-spacing:3px;font-size:12px;color:#eee;text-shadow:0 1px #000}
+.product-tag{position:absolute;top:12px;right:12px;background:#f5f5f2;color:#111;padding:7px 9px;font-size:9px;letter-spacing:1px;font-weight:800}
+.product-info{padding:15px 0}.product-title-row{display:flex;justify-content:space-between;gap:10px;align-items:start}.product h3{font-size:14px;margin:0 0 7px}.price{font-size:13px;white-space:nowrap}.product p{margin:0;color:#999;font-size:11px}.buy-row{display:flex;gap:8px;margin-top:14px}.buy-row select{min-width:0;width:90px;background:#111;color:white;border:1px solid #444;padding:10px}.buy-row button{flex:1;padding:10px 8px;font-size:10px}
+.band{border-block:1px solid var(--line);padding:32px 5vw;display:flex;justify-content:space-between;gap:20px;align-items:center}.band strong{font-size:clamp(18px,3vw,28px);letter-spacing:1px}.band span{color:#aaa;font-size:12px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about-mark{min-height:250px;border:1px solid #333;display:grid;place-items:center;font-size:clamp(65px,13vw,150px);font-weight:900;letter-spacing:-7px;background:linear-gradient(145deg,#191919,#080808)}.about p{color:#aaa;line-height:1.9;font-size:14px}
+footer{border-top:1px solid var(--line);padding:35px 5vw;display:flex;justify-content:space-between;gap:20px;align-items:center;color:#999;font-size:11px}
+.overlay{position:fixed;inset:0;background:#0009;z-index:30;opacity:0;pointer-events:none;transition:.2s}.overlay.open{opacity:1;pointer-events:auto}.drawer{position:fixed;z-index:31;top:0;bottom:0;left:0;width:min(460px,100%);background:#101010;border-right:1px solid #333;padding:25px;transform:translateX(-105%);transition:.25s;overflow:auto}.drawer.open{transform:translateX(0)}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:18px}.x{background:none;border:0;color:white;font-size:25px;cursor:pointer}.cart-items{padding:16px 0}.cart-item{display:grid;grid-template-columns:65px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid #292929;align-items:center}.mini{height:75px;background:linear-gradient(145deg,#252525,#090909);display:grid;place-items:center;font-weight:900}.cart-item small{display:block;color:#aaa;margin-top:6px}.remove{background:none;border:0;color:#aaa;text-decoration:underline;cursor:pointer;font-size:11px;margin-top:7px}.qty{display:flex;gap:10px;align-items:center;margin-top:8px}.qty button{background:#222;border:1px solid #444;color:white;width:24px;height:24px;cursor:pointer}.total{display:flex;justify-content:space-between;font-weight:bold;border-top:1px solid #444;padding:18px 0}
+form{display:grid;gap:12px}form label{font-size:11px;color:#bbb}form input,form textarea,form select{display:block;width:100%;margin-top:6px;background:#080808;color:#fff;border:1px solid #444;padding:12px;outline:none}form input:focus,form textarea:focus{border-color:#aaa}.note{font-size:11px;line-height:1.6;color:#999}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#f5f5f2;color:#111;padding:13px 18px;z-index:50;font-size:12px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:700px){header{padding:15px 4vw}.logo{font-size:24px}.nav{gap:12px}.nav a:nth-child(2){display:none}.hero{grid-template-columns:1fr}.hero-copy{padding:65px 7vw}.hero-art{min-height:260px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.section{padding:55px 4vw}.section-head{align-items:start;flex-direction:column}.about{grid-template-columns:1fr;gap:25px}.band{align-items:flex-start;flex-direction:column}.buy-row{flex-direction:column}.buy-row select{width:100%}footer{flex-direction:column;align-items:flex-start}.hero h1{letter-spacing:-3px}}
+@media(max-width:390px){.products{grid-template-columns:1fr}.product-image{aspect-ratio:5/4}.nav{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="announcement">DROP 001 — FREE SHIPPING OVER ₪299 <span style="font-weight:400;letter-spacing:0"> · הדגמה: עדכנו את תנאי המשלוח לפני פרסום</span></div>
+<header>
+  <a class="logo" href="#" aria-label="VYRO home">VYRO</a>
+  <nav class="nav"><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav>
+  <button class="cart-open" id="openCart">BAG (<span id="cartCount">0</span>)</button>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">INDEPENDENT STREETWEAR · ISRAEL</div>
+    <h1>BUILT<br>DIFFERENT.</h1>
+    <p>פחות רעש. יותר נוכחות. הכירו את DROP 001 של VYRO — סטריטוור מינימליסטי עם גישה שלא מתנצלת.</p>
+    <a class="btn" href="#shop">SHOP THE DROP&nbsp; ↙</a>
+  </div>
+  <div class="hero-art" role="img" aria-label="עיצוב גרפי כהה של האות V"></div>
+</section>
+<section class="section" id="shop">
+  <div class="section-head"><div><div class="eyebrow">THE FIRST COLLECTION</div><h2>DROP 001</h2></div><div class="muted" style="font-size:12px">שלושה פריטים. בלי קיצורי דרך.</div></div>
+  <div class="products">
+    <article class="product">
+      <div class="product-image tee"><span class="product-tag">BESTSELLER</span><div class="shape"></div><span class="print">VYRO</span></div>
+      <div class="product-info"><div class="product-title-row"><div><h3>Essential Oversized Tee</h3><p>BLACK · 100% COTTON* </p></div><span class="price">₪89</span></div><div class="buy-row"><select aria-label="בחר מידה לחולצה" id="size-tee"><option value="">מידה</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select><button class="btn" onclick="addToCart('tee')">הוספה לתיק +</button></div></div>
+    </article>
+    <article class="product">
+      <div class="product-image hoodie"><span class="product-tag">DROP 001</span><div class="shape"></div><span class="print">V.</span></div>
+      <div class="product-info"><div class="product-title-row"><div><h3>Heavyweight Hoodie</h3><p>WASHED BLACK · PREMIUM*</p></div><span class="price">₪199</span></div><div class="buy-row"><select aria-label="בחר מידה לקפוצ'ון" id="size-hoodie"><option value="">מידה</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select><button class="btn" onclick="addToCart('hoodie')">הוספה לתיק +</button></div></div>
+    </article>
+    <article class="product">
+      <div class="product-image pants"><span class="product-tag">NEW</span><div class="shape"></div><span class="print">V</span></div>
+      <div class="product-info"><div class="product-title-row"><div><h3>Utility Cargo Pants</h3><p>BLACK · RELAXED FIT*</p></div><span class="price">₪169</span></div><div class="buy-row"><select aria-label="בחר מידה למכנסיים" id="size-pants"><option value="">מידה</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select><button class="btn" onclick="addToCart('pants')">הוספה לתיק +</button></div></div>
+    </article>
+  </div>
+  <p class="note" style="margin-top:20px">* שמות, מפרטים, מחירים ותמונות הפריטים הם דוגמאות לצורכי עיצוב בלבד. החליפו אותם בפרטי המוצרים האמיתיים שלכם לפני מכירה.</p>
+</section>
+<div class="band"><strong>YOUR STYLE. YOUR RULES.</strong><span>VYRO — DROP 001 / EST. 2026</span></div>
+<section class="section about" id="about">
+  <div class="about-mark">VYRO</div>
+  <div><div class="eyebrow">OUR POINT OF VIEW</div><h2>NOT MADE<br>TO BLEND IN.</h2><p>VYRO נולדה מתוך אהבה לבגדי רחוב, לגזרות נקיות ולפרטים הקטנים. אנחנו מאמינים שסטייל לא צריך לצעוק כדי שישימו לב אליו.</p><a class="btn btn-outline" href="#shop">גלה את הקולקציה</a></div>
+</section>
+<section class="section" id="contact" style="padding-top:20px"><div class="eyebrow">NEED HELP?</div><h2 style="font-size:30px">LET'S TALK.</h2><p class="muted" style="font-size:13px;line-height:1.8">שאלות על מידות או הזמנה? הוסיפו כאן את כתובת האימייל או האינסטגרם של המותג לפני פרסום.</p></section>
+</main>
+<footer><a class="logo" href="#" style="font-size:22px">VYRO</a><span>© 2026 VYRO. ALL RIGHTS RESERVED.</span><span>BUILT DIFFERENT.</span></footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="סל קניות" aria-modal="true" role="dialog">
+  <div class="drawer-head"><div><div class="eyebrow">YOUR SELECTION</div><h2 style="margin:7px 0 0">התיק שלך</h2></div><button class="x" id="closeCart" aria-label="סגור">×</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="total"><span>סה״כ ביניים</span><span id="subtotal">₪0</span></div>
+  <form id="checkoutForm">
+    <div class="eyebrow">ORDER DETAILS</div>
+    <label>שם מלא<input name="name" required autocomplete="name" placeholder="שם ושם משפחה"></label>
+    <label>טלפון ליצירת קשר<input name="phone" required autocomplete="tel" type="tel" placeholder="05X-XXXXXXX"></label>
+    <label>אימייל (לא חובה)<input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+    <label>כתובת למשלוח<input name="address" required autocomplete="street-address" placeholder="רחוב, מספר, עיר ומיקוד"></label>
+    <label>הערות להזמנה<textarea name="notes" rows="2" placeholder="צבע או בקשה מיוחדת"></textarea></label>
+    <button class="btn" type="submit">המשך להזמנה בוואטסאפ ↗</button>
+    <p class="note">הכפתור יפתח הודעת הזמנה בוואטסאפ. כדי שהשליחה תעבוד, יש להגדיר את מספר הוואטסאפ של העסק בקוד. כרגע לא מתבצע חיוב ולא נשמרים פרטי תשלום.</p>
+  </form>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const products={
+ tee:{name:'Essential Oversized Tee',price:89,sizeId:'size-tee'},
+ hoodie:{name:'Heavyweight Hoodie',price:199,sizeId:'size-hoodie'},
+ pants:{name:'Utility Cargo Pants',price:169,sizeId:'size-pants'}
+};
+const cart=[];
+const drawer=document.getElementById('drawer'),overlay=document.getElementById('overlay');
+function money(n){return '₪'+n.toLocaleString('he-IL')}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function openCart(){drawer.classList.add('open');overlay.classList.add('open');document.body.style.overflow='hidden'}
+function closeCart(){drawer.classList.remove('open');overlay.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('openCart').addEventListener('click',openCart);
+document.getElementById('closeCart').addEventListener('click',closeCart);
+overlay.addEventListener('click',closeCart);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart()});
+function addToCart(id){
+ const size=document.getElementById(products[id].sizeId).value;
+ if(!size){showToast('יש לבחור מידה לפני ההוספה');document.getElementById(products[id].sizeId).focus();return}
+ const existing=cart.find(x=>x.id===id&&x.size===size);
+ if(existing)existing.qty++;else cart.push({id,size,qty:1});
+ renderCart();showToast('נוסף לתיק בהצלחה');openCart();
+}
+function renderCart(){
+ const root=document.getElementById('cartItems');
+ document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);
+ if(!cart.length){root.innerHTML='<p class="muted" style="padding:20px 0">התיק עדיין ריק. זה הזמן למצוא את הפריט שלך.</p>';document.getElementById('subtotal').textContent=money(0);return}
+ root.innerHTML='';
+ cart.forEach((item,i)=>{
+  const p=products[item.id],el=document.createElement('div');el.className='cart-item';
+  el.innerHTML='<div class="mini">V.</div><div><strong style="font-size:12px"></strong><small></small><div class="qty"><button type="button" aria-label="הפחת כמות">−</button><span></span><button type="button" aria-label="הוסף כמות">+</button></div><button class="remove" type="button">הסרה</button></div><strong class="line-price" style="font-size:12px"></strong>';
+  el.querySelector('strong').textContent=p.name;el.querySelector('small').textContent='מידה: '+item.size;el.querySelector('.qty span').textContent=item.qty;el.querySelector('.line-price').textContent=money(p.price*item.qty);
+  const buttons=el.querySelectorAll('.qty button');buttons[0].addEventListener('click',()=>{item.qty--;if(item.qty<=0)cart.splice(i,1);renderCart()});buttons[1].addEventListener('click',()=>{item.qty++;renderCart()});el.querySelector('.remove').addEventListener('click',()=>{cart.splice(i,1);renderCart()});root.appendChild(el);
+ });
+ document.getElementById('subtotal').textContent=money(cart.reduce((s,x)=>s+products[x.id].price*x.qty,0));
+}
+document.getElementById('checkoutForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ if(!cart.length){showToast('התיק ריק — הוסף מוצר קודם');return}
+ const form=new FormData(e.currentTarget),phoneNumber='972526961112'; // החליפו למספר העסק בפורמט בינלאומי, בלי + או אפסים מובילים
+ const items=cart.map(x=>`${products[x.id].name} | מידה ${x.size} | כמות ${x.qty} | ${money(products[x.id].price*x.qty)}`).join('\n');
+ const total=cart.reduce((s,x)=>s+products[x.id].price*x.qty,0);
+ const message=`היי VYRO! אני רוצה לבצע הזמנה:\n${items}\nסה״כ ביניים: ${money(total)}\n\nשם: ${form.get('name')}\nטלפון: ${form.get('phone')}\nאימייל: ${form.get('email')||'לא צוין'}\nכתובת למשלוח: ${form.get('address')}\nהערות: ${form.get('notes')||'אין'}\n\nאשמח לאישור זמינות, משלוח ואמצעי תשלום.`;
+ 
+ window.open('https://wa.me/'+phoneNumber+'?text='+encodeURIComponent(message),'_blank','noopener');
+});
+renderCart();
+</script>
+</body>
+</html>
